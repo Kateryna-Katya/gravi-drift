@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Инициализация иконок и плавного скролла
+    // 1. Инициализация иконок и скролла
     lucide.createIcons();
 
     const lenis = new Lenis({
@@ -13,23 +13,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     requestAnimationFrame(raf);
 
-    // 2. Three.js Hero Animation
+    // 2. Инициализация секций
     initThreeJS();
-
-    // 3. Исправленные GSAP Анимации (Секция с правками)
     initGSAP();
-
-    // 4. Мобильное меню
     initMobileMenu();
-
-    // 5. Логика формы
     initForm();
-
-    // 6. Cookie Popup
     initCookies();
 });
 
-// --- THREE.JS HERO (Без изменений) ---
+// --- THREE.JS HERO ---
 function initThreeJS() {
     const container = document.getElementById('canvas-container');
     if (!container) return;
@@ -89,11 +81,11 @@ function initThreeJS() {
     });
 }
 
-// --- GSAP ANIMATIONS (ИСПРАВЛЕНО) ---
+// --- GSAP ANIMATIONS ---
 function initGSAP() {
     gsap.registerPlugin(ScrollTrigger);
 
-    // 1. Hero Text (Заголовки появляются по очереди)
+    // Hero Text
     gsap.from(".reveal-text", {
         y: 100,
         opacity: 0,
@@ -112,13 +104,12 @@ function initGSAP() {
         delay: 1.2
     });
 
-    // 2. Платформа (Карточки) - Loop для каждой карточки отдельно
-    gsap.utils.toArray('.platform__card').forEach((card, i) => {
+    // Платформа (Каждая карточка отдельно)
+    gsap.utils.toArray('.platform__card').forEach((card) => {
         gsap.from(card, {
             scrollTrigger: {
-                trigger: card, // Триггер - сама карточка
-                start: "top 85%", // Анимация начнется, когда верх карточки будет на 85% высоты экрана
-                toggleActions: "play none none reverse" // reverse - чтобы при скролле вверх анимация проигрывалась назад (можно убрать)
+                trigger: card,
+                start: "top 85%"
             },
             y: 50,
             opacity: 0,
@@ -127,7 +118,7 @@ function initGSAP() {
         });
     });
 
-    // 3. Список инноваций (li элементы)
+    // Инновации (Список)
     gsap.utils.toArray('.innovations__list li').forEach((item, i) => {
         gsap.from(item, {
             scrollTrigger: {
@@ -137,11 +128,11 @@ function initGSAP() {
             x: -30,
             opacity: 0,
             duration: 0.6,
-            delay: i * 0.1 // Небольшая задержка для каскадного эффекта
+            delay: i * 0.1
         });
     });
 
-    // 4. Изображение инноваций (Раскрытие)
+    // Картинка Инноваций
     const imgWrapper = document.querySelector('.image-reveal-wrapper');
     const img = document.querySelector('.innovations__img');
 
@@ -158,7 +149,6 @@ function initGSAP() {
                 scrub: 1
             }
         });
-        
         gsap.to(img, {
             scale: 1,
             scrollTrigger: {
@@ -169,8 +159,8 @@ function initGSAP() {
         });
     }
 
-    // 5. Блог (Карточки) - Loop для каждой статьи
-    gsap.utils.toArray('.blog__card').forEach((card, i) => {
+    // Блог (Каждая карточка отдельно)
+    gsap.utils.toArray('.blog__card').forEach((card) => {
         gsap.from(card, {
             scrollTrigger: {
                 trigger: card,
@@ -193,7 +183,6 @@ function initMobileMenu() {
 
     let isOpen = false;
 
-    // Функция переключения
     const toggle = () => {
         isOpen = !isOpen;
         if (isOpen) {
@@ -218,24 +207,25 @@ function initMobileMenu() {
         }
     };
 
-    burger.addEventListener('click', toggle);
-    
-    // Закрываем меню при клике на ссылку
-    links.forEach(link => {
-        link.addEventListener('click', toggle);
-    });
+    if(burger) {
+        burger.addEventListener('click', toggle);
+        links.forEach(link => link.addEventListener('click', toggle));
+    }
 }
 
-// --- FORM HANDLING ---
+// --- FORM HANDLING (ИСПРАВЛЕНО) ---
 function initForm() {
     const form = document.getElementById('main-form');
-    if (!form) return;
+    const successMsg = document.getElementById('form-success');
+    
+    if (!form || !successMsg) return;
 
+    // Генерация капчи
     const n1 = Math.floor(Math.random() * 10);
     const n2 = Math.floor(Math.random() * 10);
     const sum = n1 + n2;
-    const label = document.getElementById('captcha-label');
-    if(label) label.textContent = `Сколько будет ${n1} + ${n2}?`;
+    const captchaLabel = document.getElementById('captcha-label');
+    if(captchaLabel) captchaLabel.textContent = `Сколько будет ${n1} + ${n2}?`;
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -244,10 +234,10 @@ function initForm() {
         const captcha = document.getElementById('captcha');
         const phoneError = document.getElementById('phone-error');
         const captchaError = document.getElementById('captcha-error');
-        const successMsg = document.getElementById('form-success');
         
         let isValid = true;
 
+        // Валидация
         if (!/^\d+$/.test(phone.value)) {
             if(phoneError) phoneError.classList.add('visible');
             isValid = false;
@@ -264,14 +254,17 @@ function initForm() {
 
         if (isValid) {
             const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
             btn.textContent = "Отправка...";
             btn.disabled = true;
 
             setTimeout(() => {
+                // Скрываем форму и показываем успех
                 form.style.display = 'none';
-                if(successMsg) successMsg.style.display = 'block';
-            }, 1500);
+                successMsg.style.display = 'block';
+                
+                // Переинициализируем иконки Lucide внутри нового блока
+                lucide.createIcons();
+            }, 1000);
         }
     });
 }

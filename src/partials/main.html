@@ -132,42 +132,47 @@
                 </div>
             </div>
 
-            <form class="contact__form" id="main-form">
-                <div class="form-group">
-                    <label for="name">Имя</label>
-                    <input type="text" id="name" name="name" placeholder="Иван Петров" required>
-                </div>
+            <div class="form-wrapper">
 
-                <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="ivan@example.com" required>
-                </div>
+                <form class="contact__form" id="main-form">
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" name="name" placeholder="Иван Петров" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="phone">Телефон</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Только цифры" required>
-                    <span class="error-msg" id="phone-error">Введите корректный номер (только цифры)</span>
-                </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="ivan@example.com" required>
+                    </div>
 
-                <div class="form-group captcha-group">
-                    <label id="captcha-label" for="captcha">Сколько будет 3 + 5?</label>
-                    <input type="number" id="captcha" name="captcha" required>
-                    <span class="error-msg" id="captcha-error">Неверный ответ</span>
-                </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Только цифры" required>
+                        <span class="error-msg" id="phone-error">Введите корректный номер (только цифры)</span>
+                    </div>
 
-                <div class="form-group checkbox-group">
-                    <input type="checkbox" id="policy" name="policy" required>
-                    <label for="policy">Я согласен с <a href="./personal-data-policy.html">политикой обработки
-                            данных</a></label>
-                </div>
+                    <div class="form-group captcha-group">
+                        <label id="captcha-label" for="captcha">Сколько будет 3 + 5?</label>
+                        <input type="number" id="captcha" name="captcha" required>
+                        <span class="error-msg" id="captcha-error">Неверный ответ</span>
+                    </div>
 
-                <button type="submit" class="btn btn--primary btn--full">Пройти регистрацию</button>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="policy" name="policy" required>
+                        <label for="policy">Я согласен с <a href="./personal-data-policy.html">политикой обработки
+                                данных</a></label>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--full">Пройти регистрацию</button>
+                </form>
 
                 <div class="form-success" id="form-success">
-                    <h3>Спасибо!</h3>
-                    <p>Мы свяжемся с вами в ближайшее время.</p>
+                    <div class="success-icon"><i data-lucide="check-circle"></i></div>
+                    <h3>Заявка принята!</h3>
+                    <p>Мы свяжемся с вами в ближайшее время по указанным контактам.</p>
                 </div>
-            </form>
+
+            </div>
         </div>
     </div>
 </section>
