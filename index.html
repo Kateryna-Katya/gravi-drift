@@ -21,27 +21,26 @@
 <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script type="module" crossorigin src="/gravi-drift/index.js"></script>
-  <link rel="stylesheet" crossorigin href="/gravi-drift/assets/styles-CJhN-4uY.css">
+  <link rel="stylesheet" crossorigin href="/gravi-drift/assets/styles-fSNwsdEi.css">
 </head>
 
   <body class="page">
     <header class="header">
   <div class="header__container container">
-    <a href="/" class="header__logo">
+    <a href="./#hero" class="header__logo">
       Gravi-Drift<span class="header__dot">.</span>
     </a>
 
     <nav class="header__nav">
       <ul class="header__menu">
-        <li class="header__item"><a href="#hero" class="header__link">Главная</a></li>
-        <li class="header__item"><a href="#platform" class="header__link">Платформа</a></li>
-        <li class="header__item"><a href="#innovations" class="header__link">Инновации</a></li>
-        <li class="header__item"><a href="#blog" class="header__link">AI-Блог</a></li>
-        <li class="header__item"><a href="#cases" class="header__link">Кейсы</a></li>
+        <li class="header__item"><a href="./#hero" class="header__link">Главная</a></li>
+        <li class="header__item"><a href="./#platform" class="header__link">Платформа</a></li>
+        <li class="header__item"><a href="./#innovations" class="header__link">Инновации</a></li>
+        <li class="header__item"><a href="./#blog" class="header__link">AI-Блог</a></li>
       </ul>
     </nav>
 
-    <a href="#contact" class="header__cta btn-reset">
+    <a href="./#contact" class="header__cta btn-reset">
       Связаться <i data-lucide="arrow-up-right"></i>
     </a>
 
@@ -53,11 +52,11 @@
 <div class="mobile-menu">
   <div class="mobile-menu__content">
     <ul class="mobile-menu__list">
-      <li><a href="#hero" class="mobile-menu__link">Главная</a></li>
-      <li><a href="#platform" class="mobile-menu__link">Платформа</a></li>
-      <li><a href="#innovations" class="mobile-menu__link">Инновации</a></li>
-      <li><a href="#blog" class="mobile-menu__link">Блог</a></li>
-      <li><a href="#contact" class="mobile-menu__link">Контакты</a></li>
+      <li><a href="./#hero" class="mobile-menu__link">Главная</a></li>
+      <li><a href="./#platform" class="mobile-menu__link">Платформа</a></li>
+      <li><a href="./#innovations" class="mobile-menu__link">Инновации</a></li>
+      <li><a href="./#blog" class="mobile-menu__link">Блог</a></li>
+      <li><a href="./#contact" class="mobile-menu__link">Контакты</a></li>
     </ul>
   </div>
 </div>
@@ -198,42 +197,47 @@
                 </div>
             </div>
 
-            <form class="contact__form" id="main-form">
-                <div class="form-group">
-                    <label for="name">Имя</label>
-                    <input type="text" id="name" name="name" placeholder="Иван Петров" required>
-                </div>
+            <div class="form-wrapper">
 
-                <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="ivan@example.com" required>
-                </div>
+                <form class="contact__form" id="main-form">
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" name="name" placeholder="Иван Петров" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="phone">Телефон</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Только цифры" required>
-                    <span class="error-msg" id="phone-error">Введите корректный номер (только цифры)</span>
-                </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="ivan@example.com" required>
+                    </div>
 
-                <div class="form-group captcha-group">
-                    <label id="captcha-label" for="captcha">Сколько будет 3 + 5?</label>
-                    <input type="number" id="captcha" name="captcha" required>
-                    <span class="error-msg" id="captcha-error">Неверный ответ</span>
-                </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Только цифры" required>
+                        <span class="error-msg" id="phone-error">Введите корректный номер (только цифры)</span>
+                    </div>
 
-                <div class="form-group checkbox-group">
-                    <input type="checkbox" id="policy" name="policy" required>
-                    <label for="policy">Я согласен с <a href="./personal-data-policy.html">политикой обработки
-                            данных</a></label>
-                </div>
+                    <div class="form-group captcha-group">
+                        <label id="captcha-label" for="captcha">Сколько будет 3 + 5?</label>
+                        <input type="number" id="captcha" name="captcha" required>
+                        <span class="error-msg" id="captcha-error">Неверный ответ</span>
+                    </div>
 
-                <button type="submit" class="btn btn--primary btn--full">Пройти регистрацию</button>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="policy" name="policy" required>
+                        <label for="policy">Я согласен с <a href="./personal-data-policy.html">политикой обработки
+                                данных</a></label>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--full">Пройти регистрацию</button>
+                </form>
 
                 <div class="form-success" id="form-success">
-                    <h3>Спасибо!</h3>
-                    <p>Мы свяжемся с вами в ближайшее время.</p>
+                    <div class="success-icon"><i data-lucide="check-circle"></i></div>
+                    <h3>Заявка принята!</h3>
+                    <p>Мы свяжемся с вами в ближайшее время по указанным контактам.</p>
                 </div>
-            </form>
+
+            </div>
         </div>
     </div>
 </section>
@@ -244,7 +248,7 @@
     <div class="footer__grid">
 
       <div class="footer__col">
-        <a href="/" class="footer__logo">Gravi-Drift.fit</a>
+        <a href="./#hero" class="footer__logo">Gravi-Drift.fit</a>
         <p class="footer__desc">
           Передовая цифровая инфраструктура для создания AI-ассистентов.
         </p>
@@ -253,22 +257,22 @@
       <div class="footer__col">
         <h3 class="footer__title">Навигация</h3>
         <ul class="footer__list">
-          <li><a href="#platform" class="footer__link">О платформе</a></li>
-          <li><a href="#innovations" class="footer__link">Инновации</a></li>
-          <li><a href="#blog" class="footer__link">Блог</a></li>
-          <li><a href="#contact" class="footer__link">Контакты</a></li>
+          <li><a href="./#platform" class="footer__link">О платформе</a></li>
+          <li><a href="./#innovations" class="footer__link">Инновации</a></li>
+          <li><a href="./#blog" class="footer__link">Блог</a></li>
+          <li><a href="./#contact" class="footer__link">Контакты</a></li>
         </ul>
       </div>
 
       <div class="footer__col">
         <h3 class="footer__title">Правовая информация</h3>
         <ul class="footer__list">
-          <li><a href="privacy.html" class="footer__link">Privacy Policy</a></li>
-          <li><a href="cookies.html" class="footer__link">Cookie Policy</a></li>
-          <li><a href="terms.html" class="footer__link">Terms of Use</a></li>
-          <li><a href="return.html" class="footer__link">Return Policy</a></li>
-          <li><a href="disclaimer.html" class="footer__link">Disclaimer</a></li>
-          <li><a href="personal-data-policy.html" class="footer__link">Personal Data</a></li>
+          <li><a href="./privacy.html" class="footer__link">Privacy Policy</a></li>
+          <li><a href="./cookies.html" class="footer__link">Cookie Policy</a></li>
+          <li><a href="./terms.html" class="footer__link">Terms of Use</a></li>
+          <li><a href="./return.html" class="footer__link">Return Policy</a></li>
+          <li><a href="./disclaimer.html" class="footer__link">Disclaimer</a></li>
+          <li><a href="./personal-data-policy.html" class="footer__link">Personal Data</a></li>
         </ul>
       </div>
 
